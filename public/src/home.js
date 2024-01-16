@@ -40,6 +40,12 @@ function getMostPopularBooks(books) {
 function getMostPopularAuthors(books, authors) {
   for (let i = 0; i < books.length; i ++) {
     let authorToAdd = authors.find((author) => author.id === books[i].authorId)
+    function reduceNames(authorToAdd) {
+        return authorToAdd.reduce(function(acc, current) {
+        acc.push(current.name.first + " " + current.name.last);
+        return acc;
+        }, []);
+    }
     books[i].author = authorToAdd
   }
   let booksList = books.map((book) => {
@@ -48,6 +54,7 @@ function getMostPopularAuthors(books, authors) {
   let sorted = booksList.sort((a, b) => (a.count < b.count ? 1 : -1))
   let result = sorted.slice(0, 5);
   return result
+}esult
 }
 
 module.exports = {
