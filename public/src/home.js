@@ -54,7 +54,6 @@ function getMostPopularAuthors(books, authors) {
   let sorted = booksList.sort((a, b) => (a.count < b.count ? 1 : -1))
   let result = sorted.slice(0, 5);
   return result
-}esult
 }
 
 module.exports = {
